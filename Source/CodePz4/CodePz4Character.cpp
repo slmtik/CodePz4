@@ -343,6 +343,9 @@ bool ACodePz4Character::LoadAmmoFromFile()
 		uint8* ByteBuffer = reinterpret_cast<uint8*>(IntPointer);
 
 		FileHandle->Read(ByteBuffer, sizeof(uint32));
+
+		_RemainingAmmo = _RemainingAmmo > BaseAmmo ? BaseAmmo : _RemainingAmmo;
+
 		delete FileHandle;
 		return true;
 	}
